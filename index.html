@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting numbers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header>
+        <div id="h1Header">
+            <h1>Sorting numbers!</h1>
+        </div>
+    </header>
+
+    <main>
+        <div id="inputContainer">
+            <h2>Please enter numbers to sort: </h2>
+            <p>You can enter numbers by writing/pasting them in these formats: [1, 2, 3...] or [1 2 3...]</p>
+            <div>
+                <input id="inputBox" placeholder="Enter numbers:" type="text"> 
+                <button onclick="getValues()" id="sortButton">Sort</button>
+            </div>
+            <div id="resultDiv">
+                <p id="result">Sorted numbers from lowest to highest: </p>
+            </div>
+        </div>
+        
+    </main>
+    
+    <script src="Sorting.js"></script>
+</body>
+</html>
