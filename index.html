@@ -18,6 +18,12 @@
         <div id="inputContainer">
             <h2>Please enter numbers to sort: </h2>
             <p>You can enter numbers by writing/pasting them in these formats: [1, 2, 3...] or [1 2 3...]</p>
+            <div id="radioBoxDiv">
+                <input id="ascendingButton" name="orderSelection" type="radio" value="ascending">
+                <label for="ascendingButton" >Ascending order</label>
+                <input id="descendingButton" name="orderSelection" type="radio" value="descending"> 
+                <label for="descendingButton">Descending order</label>
+            </div>
             <div>
                 <input id="inputBox" placeholder="Enter numbers:" type="text"> 
                 <button onclick="getValues()" id="sortButton">Sort</button>
@@ -27,7 +33,6 @@
                 <p id="result"></p>
             </div>
         </div>
-        
     </main>
     
     <script src="Sorting.js"></script>

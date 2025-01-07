@@ -9,6 +9,10 @@ function getValues(){
     
     const values = document.getElementById("inputBox").value;
     const result = document.getElementById("result");
+    const ascendingButton = document.getElementById("ascendingButton");
+    const descendingButton = document.getElementById("descendingButton");
+    const resultDiv = document.getElementById("resultDiv");
+
 
     console.log(values.length);
 
@@ -41,23 +45,35 @@ function getValues(){
         }
     } 
 
-    numbers.forEach(element => {
-        console.log(element);
-        console.log(typeof element);
-    });
+    console.log("tu mosz numbers:");
+    console.log(numbers);
+    console.log(numbers.length);
     
-    if(numbers.includes(NaN)){
+
+    if(numbers.length == 0){
+        resultDiv.style.display = "block";
+        result.textContent = "Please type any numbers."
+    }
+    else if(numbers.includes(NaN)){
         result.textContent = "Incorrect input format!";
     }
+    else if(!ascendingButton.checked && !descendingButton.checked){
+        resultDiv.style.display = "block";
+        result.textContent = "Please choose at least one option between ascending or descending order.";
+    }
+    else if(ascendingButton.checked){
+        const sortedValuesAscending = sortValuesDescending([...numbers]);
+        displayValues(numbers, sortedValuesAscending);
+    }
     else{
-        const sortedValues = sortValues([...numbers]);
-        displayValues(numbers, sortedValues);
+        const sortedValuesDescending = sortValuesDescending([...numbers]);
+        displayValues(numbers, sortedValuesDescending);
     }
     
 }
 
 
-function sortValues(numbers){
+function sortValuesDescending(numbers){
 
     let sortedValues = [];
     let minValue;
@@ -87,6 +103,31 @@ function sortValues(numbers){
     
     return sortedValues;
 
+}
+
+function sortValuesDescending(numbers){
+
+    let sortedValues = [];
+    let minValue;
+    let minIndex;
+
+    while(numbers.length > 0){
+        minIndex = 0;
+        minValue = numbers[0];
+
+        for(let i = 1; i < numbers.length; i++){
+            if(minValue < numbers[i]){
+                minValue = numbers[i];
+                minIndex = i
+            }
+        }
+
+        sortedValues.push(minValue);
+
+        numbers.splice(minIndex, 1);
+    }
+
+    return sortedValues;
 }
 
 function displayValues(numbers, sortedValues) {

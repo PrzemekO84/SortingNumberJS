@@ -88,7 +88,10 @@ main{
 
 #resultDiv{
     border: 2px solid black;
-    margin-top: 25px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px black,
+                -1px -1px 2px black;
+    margin: 15px 0px;
     padding: 10px 20px;
 }
 
@@ -100,6 +103,15 @@ main{
     background-color: #403c3c;  
     padding: 2px 5px;                         
     border-radius: 5px;      
+}
+
+#radioBoxDiv{
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+#radioBoxDiv input{
+    cursor: pointer;
 }
 
 
